@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
 
 partial class Level : GameObjectList
 {
+    double time;
+
     public void LoadTiles(string path)
     {
         List<string> textLines = new List<string>();
@@ -19,12 +22,21 @@ partial class Level : GameObjectList
 
         GameObjectList hintField = new GameObjectList(100);
         Add(hintField);
-        string hint = textLines[textLines.Count - 1];
+        //string timestring = textLines[textLines.Count - 1];
+        //int time = Int32.Parse(timestring);
+
+        string timeLine = textLines[textLines.Count - 1];
+        string[] timeStuff = timeLine.Split('=');
+        time = double.Parse(timeStuff[1]);
+        // string hint = textLines[textLines.Count - 1];
+
         SpriteGameObject hintFrame = new SpriteGameObject("Overlays/spr_frame_hint", 1);
         hintField.Position = new Vector2((GameEnvironment.Screen.X - hintFrame.Width) / 2, 10);
         hintField.Add(hintFrame);
         TextGameObject hintText = new TextGameObject("Fonts/HintFont", 2);
-        hintText.Text = textLines[textLines.Count - 1];
+
+        hintText.Text = textLines[textLines.Count - 2];
+
         hintText.Position = new Vector2(120, 25);
         hintText.Color = Color.Black;
         hintField.Add(hintText);
