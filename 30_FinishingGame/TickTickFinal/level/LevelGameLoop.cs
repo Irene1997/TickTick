@@ -38,6 +38,11 @@ partial class Level : GameObjectList
             player.LevelFinished();
             timer.Running = false;
         }
+
+        //-------------------------------
+        camera.Update(gameTime, player);
+
+        //-------------------------------
     }
 
     public override void Reset()

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 
 class Camera
@@ -14,11 +15,12 @@ class Camera
         view = newView;
     }
 
-    public void Update(GameTime gameTime/*, Player player*/)
+    public void Update(GameTime gameTime, Player player)
     {
-        centre = new Vector2(0, 0)/*new Vector2(player.Center.X, 0)*/;
+        centre = new Vector2(player.Origin.X - 400, 0);
         transform = Matrix.CreateScale(new Vector3(1, 1, 0)) *
             Matrix.CreateTranslation(new Vector3(-centre.X, -centre.Y, 0));
     }
+
 }
 

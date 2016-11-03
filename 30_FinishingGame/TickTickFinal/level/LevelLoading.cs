@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 partial class Level : GameObjectList
 {
     double time;
+    Camera camera;
 
     public void LoadTiles(string path)
     {
@@ -22,14 +24,11 @@ partial class Level : GameObjectList
 
         GameObjectList hintField = new GameObjectList(100);
         Add(hintField);
-        //string timestring = textLines[textLines.Count - 1];
-        //int time = Int32.Parse(timestring);
-
+        //----------------------------------------------
         string timeLine = textLines[textLines.Count - 1];
         string[] timeStuff = timeLine.Split('=');
         time = double.Parse(timeStuff[1]);
-        // string hint = textLines[textLines.Count - 1];
-
+        //----------------------------------------------
         SpriteGameObject hintFrame = new SpriteGameObject("Overlays/spr_frame_hint", 1);
         hintField.Position = new Vector2((GameEnvironment.Screen.X - hintFrame.Width) / 2, 10);
         hintField.Add(hintFrame);
@@ -104,13 +103,17 @@ partial class Level : GameObjectList
         t.Ice = ice;
         return t;
     }
-
+    
     private Tile LoadStartTile(int x, int y)
     {
         TileField tiles = Find("tiles") as TileField;
         Vector2 startPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
         Player player = new Player(startPosition);
         Add(player);
+        //-------------------------------------------
+        Viewport viewport = GameEnvironment.Viewport;
+        camera = new Camera(viewport);
+        //-------------------------------------------
         return new Tile("", TileType.Background);
     }
 

@@ -10,6 +10,7 @@ public class GameEnvironment : Game
     protected InputHelper inputHelper;
     protected Matrix spriteScale;
     protected Point windowSize;
+    Viewport viewport;
 
     protected static Point screen;
     protected static GameStateManager gameStateManager;
@@ -90,7 +91,7 @@ public class GameEnvironment : Game
             width = (int)(height * targetAspectRatio);
         }
 
-        Viewport viewport = new Viewport();
+        viewport = new Viewport();
         viewport.X = (graphics.PreferredBackBufferWidth / 2) - (width / 2);
         viewport.Y = (graphics.PreferredBackBufferHeight / 2) - (height / 2);
         viewport.Width = width;
@@ -102,7 +103,12 @@ public class GameEnvironment : Game
         inputHelper.Offset = new Vector2(viewport.X, viewport.Y);
         spriteScale = Matrix.CreateScale(inputHelper.Scale.X, inputHelper.Scale.Y, 1);
     }
-
+    //---------------------------------------
+    public Viewport Viewport
+    {
+        get { return viewport; }
+    }
+    //---------------------------------------
     protected override void LoadContent()
     {
         DrawingHelper.Initialize(this.GraphicsDevice);
