@@ -58,7 +58,7 @@ partial class Player : AnimatedGameObject
         {
             velocity.X = walkingSpeed;
         }
-        else if (!walkingOnIce && isOnTheGround)
+        else if (!walkingOnIce/* && isOnTheGround*/)
         {
             velocity.X = 0.0f;
         }
