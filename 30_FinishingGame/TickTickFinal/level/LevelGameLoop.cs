@@ -40,7 +40,7 @@ partial class Level : GameObjectList
         }
 
         //-------------------------------
-       // camera.Update(gameTime, player);
+        camera.Update(gameTime, player);
 
         //-------------------------------
     }
