@@ -6,10 +6,10 @@ using Microsoft.Xna.Framework.Input;
 
 class Camera
 {
-    public Matrix transform;
+    //public Matrix transform;
     Viewport viewport;
     Vector2 centre;
-    Vector2 offset;
+    public Vector2 offset;
     Vector2 levelScale;
 
     public Camera(Viewport viewport, Level level)

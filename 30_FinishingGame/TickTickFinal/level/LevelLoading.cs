@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 partial class Level : GameObjectList
 {
     double time;
-    Camera camera;
+    public static Camera camera;
     public Vector2 levelScale;
 
     public void LoadTiles(string path)
