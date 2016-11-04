@@ -111,8 +111,8 @@ partial class Level : GameObjectList
         Player player = new Player(startPosition);
         Add(player);
         //-------------------------------------------
-        Viewport viewport = GameEnvironment.Viewport;
-        camera = new Camera(viewport);
+      //  Viewport viewport = GameEnvironment.Viewport;
+        //camera = new Camera(viewport);
         //-------------------------------------------
         return new Tile("", TileType.Background);
     }

@@ -10,8 +10,10 @@ public class GameEnvironment : Game
     protected InputHelper inputHelper;
     protected Matrix spriteScale;
     protected Point windowSize;
-    Viewport viewport;
 
+
+    protected static Viewport viewport;
+    public static Matrix camera;
     protected static Point screen;
     protected static GameStateManager gameStateManager;
     protected static Random random;
@@ -24,7 +26,7 @@ public class GameEnvironment : Game
 
         inputHelper = new InputHelper();
         gameStateManager = new GameStateManager();
-        spriteScale = Matrix.CreateScale(1, 1, 1);
+        spriteScale = Matrix.CreateScale(2, 2, 1);
         random = new Random();
         assetManager = new AssetManager(Content);
         gameSettingsManager = new GameSettingsManager();
@@ -104,10 +106,11 @@ public class GameEnvironment : Game
         spriteScale = Matrix.CreateScale(inputHelper.Scale.X, inputHelper.Scale.Y, 1);
     }
     //---------------------------------------
-    public Viewport Viewport
+    public static Viewport Viewport
     {
         get { return viewport; }
     }
+
     //---------------------------------------
     protected override void LoadContent()
     {
