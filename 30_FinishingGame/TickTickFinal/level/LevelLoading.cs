@@ -8,7 +8,7 @@ partial class Level : GameObjectList
 {
     double time;
     public static Camera camera;
-    public Vector2 levelScale;
+    Vector2 levelScale;
 
     public void LoadTiles(string path)
     {
@@ -16,14 +16,18 @@ partial class Level : GameObjectList
         StreamReader fileReader = new StreamReader(path);
         string line = fileReader.ReadLine();
         int width = line.Length;
-        int height = textLines.Count - 2;
-        levelScale = new Vector2(width / 20f, height / 15f);
+
+
         while (line != null)
         {
             textLines.Add(line);
             line = fileReader.ReadLine();
         }
         TileField tiles = new TileField(textLines.Count - 2, width, 1, "tiles");
+
+
+        int height = textLines.Count - 2;
+        levelScale = new Vector2(width / 20f, height / 15f);
 
         GameObjectList hintField = new GameObjectList(100);
         Add(hintField);
@@ -115,7 +119,7 @@ partial class Level : GameObjectList
         Add(player);
         //-------------------------------------------
         Viewport viewport = GameEnvironment.Viewport;
-        camera = new Camera(viewport, this);
+        camera = new Camera(viewport, levelScale);
         //-------------------------------------------
         return new Tile("", TileType.Background);
     }

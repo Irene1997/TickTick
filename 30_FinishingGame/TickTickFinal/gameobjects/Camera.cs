@@ -10,25 +10,30 @@ class Camera
     Viewport viewport;
     Vector2 centre;
     public Vector2 offset;
-    Vector2 levelScale;
+    public Vector2 levelScale;
 
-    public Camera(Viewport viewport, Level level)
+    public Camera(Viewport viewport, Vector2 levelScale)
     {
         this.viewport = viewport;
         centre = new Vector2(viewport.Width / 2, viewport.Height / 2);
-        levelScale = level.levelScale;
+        this.levelScale = levelScale;
     }
 
     public void Update(GameTime gameTime, Player player)
     {
-        if ((player.Position.X < centre.X && player.Position.X > viewport.Width / 2) || (player.Position.X > centre.X && player.Position.X < viewport.Width * (levelScale.X - 0.5f)))
+        if (player.Position.X < centre.X && player.Position.X > viewport.Width / 2)
+        {
+            centre.X = player.Position.X;
+        }
+        if (player.Position.X > centre.X && player.Position.X < viewport.Width * (levelScale.X - 0.5f))
         {
             centre.X = player.Position.X;
         }
 
 
 
-        if ((player.Position.Y < centre.Y && player.Position.Y > viewport.Height / 2) || (player.Position.Y > centre.Y && player.Position.Y < viewport.Height * (levelScale.Y - 0.5f)))
+        if ((player.Position.Y < centre.Y && player.Position.Y > viewport.Height / 2)
+            || (player.Position.Y > centre.Y && player.Position.Y < viewport.Height * (levelScale.Y - 0.5f)))
         {
             centre.Y = player.Position.Y;
         }
