@@ -28,9 +28,9 @@ class Camera
             centre.X = viewport.Width / 2;
         }
 
-        if (player.Position.X > (levelSize.X * 72) - (viewport.Width / 2)-56/*viewport.Width * (levelScale.X - 0.5f)*/)
+        if (player.Position.X > /*(levelSize.X * 72) - (viewport.Width / 2)*/viewport.Width * (levelScale.X - 0.5f))
         {
-            centre.X = (levelSize.X * 72) - (viewport.Width / 2) - 56 /*viewport.Width * (levelScale.X - 0.5f)*/;
+            centre.X = /*(levelSize.X * 72) - (viewport.Width / 2)*/viewport.Width * (levelScale.X - 0.5f);
         }
 
         if (player.Position.Y < viewport.Height / 2)

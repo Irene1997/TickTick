@@ -42,6 +42,7 @@ partial class Level : GameObjectList
         //-------------------------------
         camera.Update(gameTime, player);
         camera.levelScale = levelScale;
+        camera.levelSize = levelSize;
         //-------------------------------
     }
 

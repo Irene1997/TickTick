@@ -26,7 +26,7 @@ partial class Level : GameObjectList
 
         //-------------------------------------------------
         int height = textLines.Count - 2;
-        levelScale = new Vector2((width + 0) / 20f, height/ 15f);
+        levelScale = new Vector2((width) / 20f, height/ 15f);
         levelSize = new Vector2(width, height);
         //-------------------------------------------------
         // (width * 72)/1440, (height * 55)/825
