@@ -42,29 +42,7 @@ class Camera
             centre.Y = viewport.Height * (levelScale.Y - 0.5f);
         }
 
-        offset = centre - new Vector2(viewport.Width / 2, viewport.Height / 2);
-
-
-
-    /*    foreach(thing as things)
-        {
-            if(thing.layer = 0)
-            {
-
-            }
-            else if (thing.layer = 1)
-            {
-
-            }
-            else if (thing.layer = 2)
-            {
-
-            }
-            else
-            {
-
-            }
-        }*/
+        offset = (centre - new Vector2(viewport.Width / 2, viewport.Height / 2))/10;
 
     }
 
