@@ -8,7 +8,7 @@ partial class Level : GameObjectList
 {
     double time;
     public static Camera camera;
-    Vector2 levelScale;
+    public Vector2 levelScale;
 
     public void LoadTiles(string path)
     {
@@ -16,8 +16,7 @@ partial class Level : GameObjectList
         StreamReader fileReader = new StreamReader(path);
         string line = fileReader.ReadLine();
         int width = line.Length;
-
-
+        
         while (line != null)
         {
             textLines.Add(line);
