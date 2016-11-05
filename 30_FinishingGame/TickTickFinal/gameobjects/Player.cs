@@ -41,7 +41,7 @@ partial class Player : AnimatedGameObject
 
     public override void HandleInput(InputHelper inputHelper)
     {
-        float walkingSpeed = 400;
+        float walkingSpeed = 600;
         if (walkingOnIce)
         {
             walkingSpeed *= 1.5f;
@@ -58,7 +58,7 @@ partial class Player : AnimatedGameObject
         {
             velocity.X = walkingSpeed;
         }
-        else if (!walkingOnIce/* && isOnTheGround*/)
+        else if (!walkingOnIce)
         {
             velocity.X = 0.0f;
         }

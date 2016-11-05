@@ -7,7 +7,7 @@ public class SpriteGameObject : GameObject
     protected Vector2 origin;
     public bool PerPixelCollisionDetection = true;
 
-    public SpriteGameObject(string assetName, int layer = 0, string id = "", int sheetIndex = 0)
+    public SpriteGameObject(string assetName, int layer = 10, string id = "", int sheetIndex = 0)
         : base(layer, id)
     {
         if (assetName != "")
@@ -26,7 +26,7 @@ public class SpriteGameObject : GameObject
         {
             return;
         }
-        sprite.Draw(spriteBatch, this.GlobalPosition, origin + Level.camera.offset);
+        sprite.Draw(spriteBatch, this.GlobalPosition, origin + Level.camera.offset * layer / 10f);
     }
 
     public SpriteSheet Sprite

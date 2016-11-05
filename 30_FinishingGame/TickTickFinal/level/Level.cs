@@ -16,23 +16,23 @@ partial class Level : GameObjectList
         // add a few random mountains
         for (int i = 0; i < 5; i++)
         {
-            SpriteGameObject mountain = new SpriteGameObject("Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 1);
+            SpriteGameObject mountain = new SpriteGameObject("Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 3);
             mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * GameEnvironment.Screen.X - mountain.Width / 2, 
                 GameEnvironment.Screen.Y - mountain.Height);
             backgrounds.Add(mountain);
         }
 
-        Clouds clouds = new Clouds(2);
+        Clouds clouds = new Clouds(6);
         backgrounds.Add(clouds);
         Add(backgrounds);
 
-        SpriteGameObject timerBackground = new SpriteGameObject("Sprites/spr_timer", 100); //Here
+        SpriteGameObject timerBackground = new SpriteGameObject("Sprites/spr_timer", 0); //Here
         timerBackground.Position = new Vector2(10, 10);
         Add(timerBackground);
         
 
-        quitButton = new Button("Sprites/spr_button_quit", 100); //Here
-        quitButton.Position = new Vector2(GameEnvironment.Screen.X - quitButton.Width - 10, 10); //Here
+        quitButton = new Button("Sprites/spr_button_quit", 0); //Here
+        quitButton.Position = new Vector2(GameEnvironment.Screen.X - quitButton.Width - 10, 0); //Here
         Add(quitButton);
 
 
@@ -41,7 +41,7 @@ partial class Level : GameObjectList
 
         LoadTiles("Content/Levels/" + levelIndex + ".txt");
 
-        TimerGameObject timer = new TimerGameObject(time, 101, "timer"); //Here
+        TimerGameObject timer = new TimerGameObject(time, 0, "timer"); //Here
         timer.Position = new Vector2(25, 30);
         Add(timer);
     }
