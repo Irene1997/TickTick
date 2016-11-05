@@ -25,17 +25,20 @@ partial class Level : GameObjectList
         }
         TileField tiles = new TileField(textLines.Count - 2, width, 1, "tiles");
 
-
+        //-------------------------------------------------
         int height = textLines.Count - 2;
         levelScale = new Vector2(width / 20f, height / 15f);
+        //-------------------------------------------------
 
         GameObjectList hintField = new GameObjectList(100);
         Add(hintField);
+
         //----------------------------------------------
         string timeLine = textLines[textLines.Count - 1];
         string[] timeStuff = timeLine.Split('=');
         time = double.Parse(timeStuff[1]);
         //----------------------------------------------
+
         SpriteGameObject hintFrame = new SpriteGameObject("Overlays/spr_frame_hint", 1);
         hintField.Position = new Vector2((GameEnvironment.Screen.X - hintFrame.Width) / 2, 10);
         hintField.Add(hintFrame);
@@ -46,8 +49,13 @@ partial class Level : GameObjectList
         hintText.Position = new Vector2(120, 25);
         hintText.Color = Color.Black;
         hintField.Add(hintText);
-        VisibilityTimer hintTimer = new VisibilityTimer(hintField, 1, "hintTimer");
+        VisibilityTimer hintTimer = new VisibilityTimer(hintField, 1, "hintTimer"); // Here
         Add(hintTimer);
+
+        //-------------------------------------------
+        Viewport viewport = GameEnvironment.Viewport;
+        camera = new Camera(viewport, levelScale);
+        //-------------------------------------------
 
         Add(tiles);
         tiles.CellWidth = 72;
@@ -117,10 +125,6 @@ partial class Level : GameObjectList
         Vector2 startPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
         Player player = new Player(startPosition);
         Add(player);
-        //-------------------------------------------
-        Viewport viewport = GameEnvironment.Viewport;
-        camera = new Camera(viewport, levelScale);
-        //-------------------------------------------
         return new Tile("", TileType.Background);
     }
 

@@ -26,13 +26,13 @@ partial class Level : GameObjectList
         backgrounds.Add(clouds);
         Add(backgrounds);
 
-        SpriteGameObject timerBackground = new SpriteGameObject("Sprites/spr_timer", 100);
+        SpriteGameObject timerBackground = new SpriteGameObject("Sprites/spr_timer", 100); //Here
         timerBackground.Position = new Vector2(10, 10);
         Add(timerBackground);
         
 
-        quitButton = new Button("Sprites/spr_button_quit", 100);
-        quitButton.Position = new Vector2(GameEnvironment.Screen.X - quitButton.Width - 10, 10);
+        quitButton = new Button("Sprites/spr_button_quit", 100); //Here
+        quitButton.Position = new Vector2(GameEnvironment.Screen.X - quitButton.Width - 10, 10); //Here
         Add(quitButton);
 
 
@@ -41,7 +41,7 @@ partial class Level : GameObjectList
 
         LoadTiles("Content/Levels/" + levelIndex + ".txt");
 
-        TimerGameObject timer = new TimerGameObject(time, 101, "timer");
+        TimerGameObject timer = new TimerGameObject(time, 101, "timer"); //Here
         timer.Position = new Vector2(25, 30);
         Add(timer);
     }

@@ -10,9 +10,9 @@ class Camera
     Viewport viewport;
     Vector2 centre;
     public Vector2 offset;
-    public Vector2 levelScale;
+    Vector2 levelScale;
 
-    public Camera(Viewport viewport, Vector2 levelScale)
+    public Camera(Viewport viewport, Vector2 levelscale)
     {
         this.viewport = viewport;
         centre = new Vector2(viewport.Width / 2, viewport.Height / 2);
@@ -41,6 +41,28 @@ class Camera
 
 
         offset = centre - new Vector2(viewport.Width / 2, viewport.Height / 2);
+
+
+
+    /*    foreach(thing as things)
+        {
+            if(thing.layer = 0)
+            {
+
+            }
+            else if (thing.layer = 1)
+            {
+
+            }
+            else if (thing.layer = 2)
+            {
+
+            }
+            else
+            {
+
+            }
+        }*/
 
         //centre = new Vector2(player.Origin.X - 400, 0);
         //transform = Matrix.CreateScale(new Vector3(1, 1, 0)) *
