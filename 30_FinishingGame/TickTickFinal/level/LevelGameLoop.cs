@@ -50,5 +50,6 @@ partial class Level : GameObjectList
         base.Reset();
         VisibilityTimer hintTimer = Find("hintTimer") as VisibilityTimer;
         hintTimer.StartVisible();
+        camera.Reset();
     }
 }
