@@ -26,7 +26,7 @@ partial class Level : GameObjectList
 
         //-------------------------------------------------
         int height = textLines.Count - 2;
-        levelScale = new Vector2(width / 20f, height / 15f);
+        levelScale = new Vector2((width + 0) / 18f, height/ 15f);
         //-------------------------------------------------
 
         GameObjectList hintField = new GameObjectList(100);
@@ -178,7 +178,7 @@ partial class Level : GameObjectList
     private Tile LoadEndTile(int x, int y)
     {
         TileField tiles = Find("tiles") as TileField;
-        SpriteGameObject exitObj = new SpriteGameObject("Sprites/spr_goal", 1, "exit");
+        SpriteGameObject exitObj = new SpriteGameObject("Sprites/spr_goal", 10, "exit");
         exitObj.Position = new Vector2(x * tiles.CellWidth, (y+1) * tiles.CellHeight);
         exitObj.Origin = new Vector2(0, exitObj.Height);
         Add(exitObj);
