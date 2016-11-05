@@ -37,10 +37,10 @@ partial class Level : GameObjectList
         time = double.Parse(timeStuff[1]);
         //----------------------------------------------
 
-        SpriteGameObject hintFrame = new SpriteGameObject("Overlays/spr_frame_hint", 1);
+        SpriteGameObject hintFrame = new SpriteGameObject("Overlays/spr_frame_hint", 0);
         hintField.Position = new Vector2((GameEnvironment.Screen.X - hintFrame.Width) / 2, 10);
         hintField.Add(hintFrame);
-        TextGameObject hintText = new TextGameObject("Fonts/HintFont", 2);
+        TextGameObject hintText = new TextGameObject("Fonts/HintFont", 0);
 
         hintText.Text = textLines[textLines.Count - 2];
 

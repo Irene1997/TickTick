@@ -52,11 +52,11 @@ class Rocket : AnimatedGameObject
     public virtual void CheckCollision()
     {
         Player player = GameWorld.Find("player") as Player;
+        //if (CollidesWith(player) && visible && player.Velocity.Y <= velocity.Y)
+        //{
+        //    this.Die();
+        //}
         if (CollidesWith(player) && visible && player.Velocity.Y <= velocity.Y)
-        {
-            this.Die();
-        }
-        if (CollidesWith(player) && visible)
         {
             player.Die(false);
         }
@@ -68,9 +68,9 @@ class Rocket : AnimatedGameObject
         }
     }
 
-    public void Die()
-    {
-        velocity.X = 0.0f;
+    //public void Die()
+    //{
+    //    velocity.X = 0.0f;
         
-    }
+    //}
 }
