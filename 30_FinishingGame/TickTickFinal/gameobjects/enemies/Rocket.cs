@@ -32,12 +32,15 @@ class Rocket : AnimatedGameObject
             return;
         }
         visible = true;
-        velocity.X = 600;
+        if(velocity.Y == 0)
+        {
+            velocity.X = 600;
+        }
         if (Mirror)
         {
             this.velocity.X *= -1;
         }
-        CheckPlayerCollision();
+        CheckCollision();
         // check if we are outside the screen
         Rectangle screenBox = new Rectangle(0, 0, (int)levelSize.X * 72, (int)levelSize.Y * 52);
         if (!screenBox.Intersects(this.BoundingBox))
@@ -46,16 +49,22 @@ class Rocket : AnimatedGameObject
         }
     }
 
-    public void CheckPlayerCollision()
+    public virtual void CheckCollision()
     {
         Player player = GameWorld.Find("player") as Player;
-        if (CollidesWith(player) && visible)
+        if (CollidesWith(player) && visible && player.Velocity.Y <= velocity.Y)
         {
             this.Die();
         }
         if (CollidesWith(player) && visible)
         {
             player.Die(false);
+        }
+        if(CollidesWith(player) && visible && player.Velocity.Y > velocity.Y)
+        {
+            velocity.X = 0;
+            velocity.Y = 600;
+            player.Velocity = new Vector2(player.Velocity.X, -500);
         }
     }
 
