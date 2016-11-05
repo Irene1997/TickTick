@@ -12,7 +12,7 @@ class Camera
     public Vector2 offset;
     Vector2 levelScale;
 
-    public Camera(Viewport viewport, Vector2 levelscale)
+    public Camera(Viewport viewport, Vector2 levelScale)
     {
         this.viewport = viewport;
         centre = new Vector2(viewport.Width / 2, viewport.Height / 2);
