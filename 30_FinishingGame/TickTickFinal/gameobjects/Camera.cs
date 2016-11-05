@@ -9,13 +9,12 @@ class Camera
     Viewport viewport;
     Vector2 centre, screen;
     public Vector2 offset;
-    public Vector2 levelScale, levelSize;
+    public Vector2 levelSize;
 
-    public Camera(Viewport viewport, Vector2 levelScale, Vector2 levelSize)
+    public Camera(Viewport viewport, Vector2 levelSize)
     {
         this.viewport = viewport;
         centre = new Vector2(viewport.Width / 2, viewport.Height / 2);
-        this.levelScale = levelScale;
         this.levelSize = levelSize;
         screen = new Vector2(GameEnvironment.Screen.X, GameEnvironment.Screen.Y);
     }

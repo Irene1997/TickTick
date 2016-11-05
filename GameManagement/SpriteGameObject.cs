@@ -104,5 +104,33 @@ public class SpriteGameObject : GameObject
         }
         return false;
     }
+
+    public bool CollidesWithTop(SpriteGameObject obj)
+    {
+        if (!visible || !obj.visible || !BoundingBox.Intersects(obj.BoundingBox))
+        {
+            return false;
+        }
+        if (!PerPixelCollisionDetection)
+        {
+            return true;
+        }
+        Rectangle b = Collision.Intersection(BoundingBox, obj.BoundingBox);
+        for (int x = 0; x < b.Width; x++)
+        {
+            for (int y = 0; y < b.Height/2; y++)
+            {
+                int thisx = b.X - (int)(GlobalPosition.X - origin.X) + x;
+                int thisy = b.Y - (int)(GlobalPosition.Y - origin.Y) + y;
+                int objx = b.X - (int)(obj.GlobalPosition.X - obj.origin.X) + x;
+                int objy = b.Y - (int)(obj.GlobalPosition.Y - obj.origin.Y) + y;
+                if (sprite.IsTranslucent(thisx, thisy) && obj.sprite.IsTranslucent(objx, objy))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 

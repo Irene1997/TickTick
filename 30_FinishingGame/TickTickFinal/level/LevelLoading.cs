@@ -8,7 +8,7 @@ partial class Level : GameObjectList
 {
     double time;
     public static Camera camera;
-    public Vector2 levelScale, levelSize;
+    public Vector2 levelSize;
 
     public void LoadTiles(string path)
     {
@@ -26,10 +26,8 @@ partial class Level : GameObjectList
 
         //-------------------------------------------------
         int height = textLines.Count - 2;
-        levelScale = new Vector2((width) / 20f, height/ 15f);
         levelSize = new Vector2(width, height);
         //-------------------------------------------------
-        // (width * 72)/1440, (height * 55)/825
         GameObjectList hintField = new GameObjectList(100);
         Add(hintField);
 
@@ -54,7 +52,7 @@ partial class Level : GameObjectList
 
         //-------------------------------------------
         Viewport viewport = GameEnvironment.Viewport;
-        camera = new Camera(viewport, levelScale, levelSize);
+        camera = new Camera(viewport, levelSize);
         //-------------------------------------------
 
         Add(tiles);
@@ -171,7 +169,7 @@ partial class Level : GameObjectList
         GameObjectList enemies = Find("enemies") as GameObjectList;
         TileField tiles = Find("tiles") as TileField;
         Vector2 startPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
-        Rocket enemy = new Rocket(moveToLeft, startPosition);
+        Rocket enemy = new Rocket(moveToLeft, startPosition, levelSize);
         enemies.Add(enemy);
         return new Tile();
     }

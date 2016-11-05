@@ -3,14 +3,15 @@
 class Rocket : AnimatedGameObject
 {
     protected double spawnTime;
-    protected Vector2 startPosition;
+    protected Vector2 startPosition, levelSize;
 
-    public Rocket(bool moveToLeft, Vector2 startPosition)
+    public Rocket(bool moveToLeft, Vector2 startPosition, Vector2 levelSize)
     {
         LoadAnimation("Sprites/Rocket/spr_rocket@3", "default", true, 0.2f);
         PlayAnimation("default");
         Mirror = moveToLeft;
         this.startPosition = startPosition;
+        this.levelSize = levelSize;
         Reset();
     }
 
@@ -38,7 +39,7 @@ class Rocket : AnimatedGameObject
         }
         CheckPlayerCollision();
         // check if we are outside the screen
-        Rectangle screenBox = new Rectangle(0, 0, GameEnvironment.Screen.X, GameEnvironment.Screen.Y);
+        Rectangle screenBox = new Rectangle(0, 0, (int)levelSize.X * 72, (int)levelSize.Y * 52);
         if (!screenBox.Intersects(this.BoundingBox))
         {
             Reset();
@@ -50,7 +51,17 @@ class Rocket : AnimatedGameObject
         Player player = GameWorld.Find("player") as Player;
         if (CollidesWith(player) && visible)
         {
+            this.Die();
+        }
+        if (CollidesWith(player) && visible)
+        {
             player.Die(false);
         }
+    }
+
+    public void Die()
+    {
+        velocity.X = 0.0f;
+        
     }
 }
