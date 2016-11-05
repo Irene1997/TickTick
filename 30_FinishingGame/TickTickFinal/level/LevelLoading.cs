@@ -47,12 +47,11 @@ partial class Level : GameObjectList
         hintText.Position = new Vector2(120, 25);
         hintText.Color = Color.Black;
         hintField.Add(hintText);
-        VisibilityTimer hintTimer = new VisibilityTimer(hintField, 1, "hintTimer"); // Here
+        VisibilityTimer hintTimer = new VisibilityTimer(hintField, 0, "hintTimer"); // Here
         Add(hintTimer);
 
         //-------------------------------------------
-        Viewport viewport = GameEnvironment.Viewport;
-        camera = new Camera(viewport, levelSize);
+        camera = new Camera(levelSize);
         //-------------------------------------------
 
         Add(tiles);
