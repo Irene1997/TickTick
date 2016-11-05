@@ -10,7 +10,7 @@ class Camera
     Viewport viewport;
     Vector2 centre;
     public Vector2 offset;
-    Vector2 levelScale;
+    public Vector2 levelScale;
 
     public Camera(Viewport viewport, Vector2 levelScale)
     {
