@@ -6,6 +6,7 @@ class Bomb : Rocket
 
     public Bomb(bool moveToLeft, Vector2 startPosition, Vector2 levelSize) : base(moveToLeft, startPosition, levelSize)
     {
+        id = "bomb";
         LoadAnimation("Sprites/Rocket/spr_rocket@3", "default", true, 0.2f);
         PlayAnimation("default");
         Mirror = moveToLeft;
@@ -17,7 +18,7 @@ class Bomb : Rocket
     public override void Reset()
     {
         visible = false;
-        position = startPosition;
+        position = playerPosition;
         velocity = Vector2.Zero;
         this.Mirror = false;
     }
@@ -65,17 +66,7 @@ class Bomb : Rocket
 
     public override void CheckCollision()
     {
-        AnimatedGameObject enemy = GameWorld.Find("enemy") as AnimatedGameObject;
-        if (CollidesWith(player) && visible && player.Velocity.Y <= velocity.Y)
-        {
-            player.Die(false);
-        }
-        if (CollidesWith(player) && visible && player.Velocity.Y > velocity.Y)
-        {
-            velocity.X = 0;
-            velocity.Y = 600;
-            player.Velocity = new Vector2(player.Velocity.X, -500);
-        }
+
     }
 }
 
