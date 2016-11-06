@@ -51,6 +51,10 @@ class Bomb : AnimatedGameObject
             this.Mirror = true;
             this.velocity.X *= -1;
         }
+        else
+        {
+            this.Mirror = false;
+        }
 
         //if (velocity.X == 0)
         //{
