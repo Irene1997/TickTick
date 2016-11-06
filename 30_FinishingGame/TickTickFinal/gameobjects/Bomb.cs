@@ -20,7 +20,6 @@ class Bomb : AnimatedGameObject
         visible = false;
         position = playerPosition;
         velocity = Vector2.Zero;
-        this.Mirror = false;
     }
 
     public override void Update(GameTime gameTime)
@@ -56,17 +55,6 @@ class Bomb : AnimatedGameObject
             this.Mirror = false;
         }
 
-        //if (velocity.X == 0)
-        //{
-        //    Mirror = playerMirror;
-        //}
-
-        //visible = true;
-        //velocity.X = 600;
-        //if (this.Mirror)
-        //{
-        //    this.velocity.X *= -1;
-        //}
     }
         
 }

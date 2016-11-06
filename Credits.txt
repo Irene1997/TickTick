@@ -1,0 +1,18 @@
+Anne van Ede 5844126, John Krijger 5847001
+
+LevelLoading.cs	
+r.27
+r.35
+r.54	
+r.124
+
+
+Player.cs
+r.14	
+r.25	
+r.75
+r.85
+
+LevelGameLoop.cs
+r.42
+r.53

@@ -11,6 +11,7 @@ partial class Player : AnimatedGameObject
     protected bool exploded;
     protected bool finished;
     protected bool walkingOnIce, walkingOnHot;
+    //declare bomb
     Bomb bomb;
 
     public Player(Vector2 start, Bomb bomb) : base(10, "player")
@@ -21,7 +22,7 @@ partial class Player : AnimatedGameObject
         LoadAnimation("Sprites/Player/spr_celebrate@14", "celebrate", false, 0.05f);
         LoadAnimation("Sprites/Player/spr_die@5", "die", false);
         LoadAnimation("Sprites/Player/spr_explode@5x5", "explode", false, 0.04f);
-
+        //assign bomb
         this.bomb = bomb;
         startPosition = start;
         Reset();
@@ -72,6 +73,7 @@ partial class Player : AnimatedGameObject
         {
             Jump();
         }
+        //if Spacebar is pressed shoot a bomb
         if (inputHelper.KeyPressed(Keys.Space))
         {
             bomb.Shoot(this.Mirror);
@@ -81,6 +83,7 @@ partial class Player : AnimatedGameObject
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+        // give the bomb the position of the player
         bomb.PlayerPosition = this.Position;
 
         if (!finished && isAlive)

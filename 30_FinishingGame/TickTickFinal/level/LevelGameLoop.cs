@@ -39,10 +39,10 @@ partial class Level : GameObjectList
             timer.Running = false;
         }
 
-        //-------------------------------
+        //Update the camera and the levelsize for current level
         camera.Update(gameTime, player);
         camera.levelSize = levelSize;
-        //-------------------------------
+        //-----------------------------------------------------
     }
 
     public override void Reset()
@@ -50,6 +50,7 @@ partial class Level : GameObjectList
         base.Reset();
         VisibilityTimer hintTimer = Find("hintTimer") as VisibilityTimer;
         hintTimer.StartVisible();
+        //Reset camera
         camera.Reset();
     }
 }

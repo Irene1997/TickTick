@@ -24,18 +24,19 @@ partial class Level : GameObjectList
         }
         TileField tiles = new TileField(textLines.Count - 2, width, 10, "tiles");
 
-        //-------------------------------------------------
+        //Store the size of the game
         int height = textLines.Count - 2;
         levelSize = new Vector2(width, height);
-        //-------------------------------------------------
+        //--------------------------
+
         GameObjectList hintField = new GameObjectList(100);
         Add(hintField);
 
-        //----------------------------------------------
+        //Plit last textline at "=" and store the time
         string timeLine = textLines[textLines.Count - 1];
         string[] timeStuff = timeLine.Split('=');
         time = double.Parse(timeStuff[1]);
-        //----------------------------------------------
+        //--------------------------------------------
 
         SpriteGameObject hintFrame = new SpriteGameObject("Overlays/spr_frame_hint", 0);
         hintField.Position = new Vector2((GameEnvironment.Screen.X - hintFrame.Width) / 2, 10);
@@ -50,10 +51,9 @@ partial class Level : GameObjectList
         VisibilityTimer hintTimer = new VisibilityTimer(hintField, 0, "hintTimer"); // Here
         Add(hintTimer);
 
-        //-------------------------------------------
+        //Assign camera
         camera = new Camera(levelSize);
-        //-------------------------------------------
-
+        
         Add(tiles);
         tiles.CellWidth = 72;
         tiles.CellHeight = 55;
@@ -120,10 +120,12 @@ partial class Level : GameObjectList
     {
         TileField tiles = Find("tiles") as TileField;
         Vector2 startPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
-        //-----
+        
+        //create a bomb and add it to list
         Bomb bomb = new Bomb(false, startPosition, levelSize);
         Add(bomb);
-        //-----
+        //--------------------------------
+
         Player player = new Player(startPosition, bomb);
         Add(player);
         return new Tile("", TileType.Background);
