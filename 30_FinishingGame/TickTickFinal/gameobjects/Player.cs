@@ -81,7 +81,7 @@ partial class Player : AnimatedGameObject
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
-        bomb.PlayerPosition = this.Position;
+       // bomb.PlayerPosition = this.Position;
 
         if (!finished && isAlive)
         {
