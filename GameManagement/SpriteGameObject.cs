@@ -26,6 +26,7 @@ public class SpriteGameObject : GameObject
         {
             return;
         }
+        //use camera to move through level
         sprite.Draw(spriteBatch, this.GlobalPosition, origin + Level.camera.offset * layer);
     }
 

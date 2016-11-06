@@ -75,9 +75,5 @@ class Rocket : AnimatedGameObject
         }
     }
 
-    //public void Die()
-    //{
-    //    velocity.X = 0.0f;
-        
-    //}
+
 }

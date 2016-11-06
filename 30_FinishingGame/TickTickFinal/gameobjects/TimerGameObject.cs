@@ -6,14 +6,17 @@ class TimerGameObject : TextGameObject
     protected TimeSpan timeLeft;
     protected bool running;
     protected double multiplier;
+    //declare timer
     double timer;
 
     public TimerGameObject(double time, int layer = 0, string id = "")
         : base("Fonts/Hud", layer, id)
     {
         multiplier = 1;
+        //use timer set in txt file for game
         timer = time;
         timeLeft = TimeSpan.FromSeconds(timer);
+        //----------------------------------
         running = true;
     }
 
@@ -41,6 +44,7 @@ class TimerGameObject : TextGameObject
     public override void Reset()
     {
         base.Reset();
+        //use timer set in txt file for game
         timeLeft = TimeSpan.FromSeconds(timer);
         running = true;
     }
