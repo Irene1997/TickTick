@@ -43,7 +43,7 @@ class Bomb : AnimatedGameObject
 
     public void Shoot(bool playerMirror)
     {
-        //
+        //reset, make visible, give speed, mirror if necessary
         Reset();
         visible = true;
         velocity.X = 600;

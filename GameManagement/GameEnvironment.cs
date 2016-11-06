@@ -26,7 +26,7 @@ public class GameEnvironment : Game
 
         inputHelper = new InputHelper();
         gameStateManager = new GameStateManager();
-        spriteScale = Matrix.CreateScale(2, 2, 1);
+        spriteScale = Matrix.CreateScale(1, 1, 1);
         random = new Random();
         assetManager = new AssetManager(Content);
         gameSettingsManager = new GameSettingsManager();
