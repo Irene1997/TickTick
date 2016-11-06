@@ -2,7 +2,6 @@
 
 class Bomb : Rocket
 {
-    Vector2 playerPosition;
 
     public Bomb(bool moveToLeft, Vector2 startPosition, Vector2 levelSize) : base(moveToLeft, startPosition, levelSize)
     {
@@ -18,7 +17,7 @@ class Bomb : Rocket
     public override void Reset()
     {
         visible = false;
-        position = playerPosition;
+        position = startPosition;
         velocity = Vector2.Zero;
         this.Mirror = false;
     }
@@ -39,8 +38,8 @@ class Bomb : Rocket
 
     public Vector2 PlayerPosition
     {
-        get { return playerPosition; }
-        set { playerPosition = value; }
+        get { return startPosition; }
+        set { startPosition = value; }
     }
 
     public void Shoot(bool playerMirror)
@@ -55,7 +54,7 @@ class Bomb : Rocket
         {
             velocity.X = 600;
         }
-        if (Mirror)
+        if (this.Mirror)
         {
             this.velocity.X *= -1;
         }
@@ -66,7 +65,7 @@ class Bomb : Rocket
 
     public override void CheckCollision()
     {
-
+        
     }
 }
 

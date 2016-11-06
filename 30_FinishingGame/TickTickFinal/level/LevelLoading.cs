@@ -121,7 +121,7 @@ partial class Level : GameObjectList
         TileField tiles = Find("tiles") as TileField;
         Vector2 startPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
         //-----
-        Bomb bomb = new Bomb(true, startPosition, levelSize);
+        Bomb bomb = new Bomb(false, startPosition, levelSize);
         Add(bomb);
         //-----
         Player player = new Player(startPosition, bomb);
