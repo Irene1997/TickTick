@@ -42,9 +42,9 @@ class Bomb : Rocket
         }
     }
 
-    public virtual void CheckCollision()
+    public override void CheckCollision()
     {
-        Player player = GameWorld.Find("player") as Player;
+        AnimatedGameObject enemy = GameWorld.Find("enemy") as AnimatedGameObject;
         if (CollidesWith(player) && visible && player.Velocity.Y <= velocity.Y)
         {
             player.Die(false);

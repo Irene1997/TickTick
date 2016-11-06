@@ -66,6 +66,13 @@ class Rocket : AnimatedGameObject
             velocity.Y = 600;
             player.Velocity = new Vector2(player.Velocity.X, -500);
         }
+
+        Bomb bomb = GameWorld.Find("bomb") as Bomb;
+        if (CollidesWith(bomb) && visible && bomb.Visible)
+        {
+            bomb.Reset();
+            Reset();
+        }
     }
 
     //public void Die()

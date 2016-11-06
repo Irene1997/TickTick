@@ -47,9 +47,16 @@ class PatrollingEnemy : AnimatedGameObject
     public void CheckPlayerCollision()
     {
         Player player = GameWorld.Find("player") as Player;
-        if (CollidesWith(player))
+        if (CollidesWith(player) && visible)
         {
             player.Die(false);
+        }
+
+        Bomb bomb = GameWorld.Find("bomb") as Bomb;
+        if (CollidesWith(bomb) && visible && bomb.Visible)
+        {
+            bomb.Reset();
+            visible = false;
         }
     }
 
