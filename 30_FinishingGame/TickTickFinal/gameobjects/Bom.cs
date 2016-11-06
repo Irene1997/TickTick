@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
 
 class Bom : Rocket
 {
-    public Rocket(bool moveToLeft, Vector2 startPosition, Vector2 levelSize)
+    public Bom(bool moveToLeft, Vector2 startPosition, Vector2 levelSize)
     {
         LoadAnimation("Sprites/Rocket/spr_rocket@3", "default", true, 0.2f);
         PlayAnimation("default");
