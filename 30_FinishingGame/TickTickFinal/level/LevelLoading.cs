@@ -122,6 +122,10 @@ partial class Level : GameObjectList
         Vector2 startPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
         Player player = new Player(startPosition);
         Add(player);
+        //-----
+        Bomb bomb = new Bomb(true, player.Position, levelSize);
+        Add(bomb);
+        //-----
         return new Tile("", TileType.Background);
     }
 

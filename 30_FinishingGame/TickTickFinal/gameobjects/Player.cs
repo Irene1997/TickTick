@@ -72,7 +72,7 @@ partial class Player : AnimatedGameObject
         }
         if (inputHelper.KeyPressed(Keys.Space))
         {
-            Bom bom = new Bom(true, this.Position, levelSize);
+            Bomb bomb = new Bomb(true, this.Position, levelSize);
         }
     }
 
