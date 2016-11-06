@@ -14,4 +14,4 @@ r...........--WWW...--...WWW.
 .X..A...T.....WWW........WWW.
 ######..###...@@@...@@...@@@.
 There are many drops in the ocean...
-Time =50
+Time =45
