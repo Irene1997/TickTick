@@ -10,7 +10,7 @@ class Bomb : AnimatedGameObject
         LoadAnimation("Sprites/Rocket/spr_rocket@3", "default", true, 0.2f);
         PlayAnimation("default");
         Mirror = moveToLeft;
-        this.playerPosition = startPosition;
+        playerPosition = startPosition;
         this.levelSize = levelSize;
         Reset();
     }
@@ -43,16 +43,13 @@ class Bomb : AnimatedGameObject
 
     public void Shoot(bool playerMirror)
     {
-        if (playerMirror)
+        if (velocity.X == 0)
         {
-            this.Mirror = true;
+            Mirror = playerMirror;
         }
 
         visible = true;
-        if (velocity.Y != 0)
-        {
-            velocity.X = 600;
-        }
+        velocity.X = 600;
         if (this.Mirror)
         {
             this.velocity.X *= -1;
