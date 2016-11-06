@@ -122,7 +122,7 @@ partial class Level : GameObjectList
         Vector2 startPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
         
         //create a bomb and add it to list
-        Bomb bomb = new Bomb(false, startPosition, levelSize);
+        Bomb bomb = new Bomb(startPosition, levelSize);
         Add(bomb);
         //--------------------------------
 

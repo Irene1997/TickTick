@@ -4,12 +4,12 @@ class Bomb : AnimatedGameObject
 {
     protected Vector2 playerPosition, levelSize;
 
-    public Bomb(bool moveToLeft, Vector2 startPosition, Vector2 levelSize)
+    public Bomb(Vector2 startPosition, Vector2 levelSize)
     {
+        //initialize Bomb
         id = "bomb";
         LoadAnimation("Sprites/Rocket/spr_rocket@3", "default", true, 0.2f);
         PlayAnimation("default");
-        Mirror = moveToLeft;
         playerPosition = startPosition;
         this.levelSize = levelSize;
         Reset();
@@ -17,6 +17,7 @@ class Bomb : AnimatedGameObject
 
     public override void Reset()
     {
+        //reset visible, put position to current player position, speed to zero
         visible = false;
         position = playerPosition;
         velocity = Vector2.Zero;
@@ -42,21 +43,21 @@ class Bomb : AnimatedGameObject
 
     public void Shoot(bool playerMirror)
     {
-        if(!visible)
+        //
+        Reset();
+        visible = true;
+        velocity.X = 600;
+        if (playerMirror)
         {
-            Reset();
-            visible = true;
-            velocity.X = 600;
-            if (playerMirror)
-            {
-                this.Mirror = true;
-                this.velocity.X *= -1;
-            }
-            else
-            {
-                this.Mirror = false;
-            }
+            this.Mirror = true;
+            this.velocity.X *= -1;
         }
+        else
+        {
+            this.Mirror = false;
+        }
+
     }
+        
 }
 

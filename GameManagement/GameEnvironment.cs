@@ -105,13 +105,7 @@ public class GameEnvironment : Game
         inputHelper.Offset = new Vector2(viewport.X, viewport.Y);
         spriteScale = Matrix.CreateScale(inputHelper.Scale.X, inputHelper.Scale.Y, 1);
     }
-    //---------------------------------------
-    public static Viewport Viewport
-    {
-        get { return viewport; }
-    }
 
-    //---------------------------------------
     protected override void LoadContent()
     {
         DrawingHelper.Initialize(this.GraphicsDevice);

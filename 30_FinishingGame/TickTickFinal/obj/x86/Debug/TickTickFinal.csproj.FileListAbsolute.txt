@@ -19,7 +19,6 @@ D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFina
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\7.txt
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\8.txt
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\9.txt
-D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\levels_status.txt
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Overlays\spr_frame_hint.png
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Overlays\spr_gameover.png
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Overlays\spr_welldone.png
@@ -61,6 +60,7 @@ D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFina
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Sounds\snd_player_jump.xnb
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Sounds\snd_player_won.xnb
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Sounds\snd_watercollected.xnb
+D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\Content\Levels\levels_status.txt
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\TickTick5.exe
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\TickTick5.pdb
 D:\Pc Anne\Documents\Uni\Gameprogrammeren\TickTick\30_FinishingGame\TickTickFinal\bin\Windows\x86\Debug\MonoGame.Framework.dll
