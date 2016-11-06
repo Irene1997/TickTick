@@ -11,6 +11,7 @@ class Camera
 
     public Camera(Vector2 levelSize)
     {
+        //initialize camera
         screen = new Vector2(GameEnvironment.Screen.X, GameEnvironment.Screen.Y);
         centre = new Vector2(screen.X / 2, screen.Y / 2);
         this.levelSize = levelSize;
@@ -19,8 +20,10 @@ class Camera
 
     public void Update(GameTime gameTime, Player player)
     {
+        //centres camera around the player
         centre = player.Position;
 
+        //if the player is too close to the sides of the level, it offsets the camera to the player
         if (player.Position.X < screen.X / 2)
         {
             centre.X = screen.X / 2;
@@ -42,11 +45,12 @@ class Camera
         }
 
         offset = (centre - new Vector2(screen.X / 2, screen.Y / 2)) / 10;
-
+        //-----------------------------------------------------------------------------------------
     }
 
     public void Reset()
     {
+        //reset camera position
         centre = new Vector2(screen.X / 2, screen.Y / 2);
     }
 

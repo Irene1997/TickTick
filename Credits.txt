@@ -18,6 +18,9 @@ r.9
 r.16
 r.49
 
+SpriteGameObject.cs
+r.29
+
 Player.cs
 r.14	
 r.25
@@ -42,5 +45,4 @@ r.68
 
 Bomb.cs
 
-SpriteGameObject.cs
-r.29
+Camera.cs
