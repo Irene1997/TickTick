@@ -2,6 +2,8 @@
 
 class Bomb : Rocket
 {
+    Vector2 playerPosition;
+
     public Bomb(bool moveToLeft, Vector2 startPosition, Vector2 levelSize) : base(moveToLeft, startPosition, levelSize)
     {
         LoadAnimation("Sprites/Rocket/spr_rocket@3", "default", true, 0.2f);
@@ -17,11 +19,35 @@ class Bomb : Rocket
         visible = false;
         position = startPosition;
         velocity = Vector2.Zero;
+        this.Mirror = false;
     }
 
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+
+        
+
+        // check if we are outside the screen
+        Rectangle screenBox = new Rectangle(0, 0, (int)levelSize.X * 72, (int)levelSize.Y * 52);
+        if (!screenBox.Intersects(this.BoundingBox))
+        {
+            Reset();
+        }
+    }
+
+    public Vector2 PlayerPosition
+    {
+        get { return playerPosition; }
+        set { playerPosition = value; }
+    }
+
+    public void Shoot(bool playerMirror)
+    {
+        if (playerMirror)
+        {
+            this.Mirror = true;
+        }
 
         visible = true;
         if (velocity.Y == 0)
@@ -33,14 +59,9 @@ class Bomb : Rocket
             this.velocity.X *= -1;
         }
         CheckCollision();
-
-        // check if we are outside the screen
-        Rectangle screenBox = new Rectangle(0, 0, (int)levelSize.X * 72, (int)levelSize.Y * 52);
-        if (!screenBox.Intersects(this.BoundingBox))
-        {
-            Reset();
-        }
     }
+        
+
 
     public override void CheckCollision()
     {
