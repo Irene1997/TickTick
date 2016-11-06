@@ -32,6 +32,7 @@ class Rocket : AnimatedGameObject
             return;
         }
         visible = true;
+        //checks is rocket is flying horizontally
         if(velocity.Y == 0)
         {
             velocity.X = 600;
@@ -52,10 +53,7 @@ class Rocket : AnimatedGameObject
     public virtual void CheckCollision()
     {
         Player player = GameWorld.Find("player") as Player;
-        //if (CollidesWith(player) && visible && player.Velocity.Y <= velocity.Y)
-        //{
-        //    this.Die();
-        //}
+        //checks if player is falling onto it
         if (CollidesWith(player) && visible && player.Velocity.Y <= velocity.Y)
         {
             player.Die(false);
@@ -66,14 +64,14 @@ class Rocket : AnimatedGameObject
             velocity.Y = 600;
             player.Velocity = new Vector2(player.Velocity.X, -500);
         }
-
+        //-----------------------------------
+        //added collisioncheck with bomb
         Bomb bomb = GameWorld.Find("bomb") as Bomb;
         if (CollidesWith(bomb) && visible && bomb.Visible)
         {
             bomb.Reset();
             Reset();
         }
+        //------------------------------
     }
-
-
 }

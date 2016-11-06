@@ -1,5 +1,9 @@
 Anne van Ede 5844126, John Krijger 5847001
 
+Changed layer of all level objects to 10
+Changed layer of all UI objects to 0
+Changed layer of clouds and mountains to something in between
+
 LevelLoading.cs	
 r.27
 r.35
@@ -16,13 +20,27 @@ r.49
 
 Player.cs
 r.14	
-r.25	
-r.75
-r.85
+r.25
+r.47	
+r.76
+r.86
 
 LevelGameLoop.cs
 r.42
 r.53
+
+Sparky.cs
+r.71
+
+PatrollingEnemy.cs
+r.55
+
+Rocket.cs
+r.35
+r.56
+r.68
+
+Bomb.cs
 
 SpriteGameObject.cs
 r.29

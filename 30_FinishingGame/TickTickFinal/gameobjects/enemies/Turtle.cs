@@ -60,12 +60,5 @@ class Turtle : AnimatedGameObject
         {
             player.Jump(1500);
         }
-
-        Bomb bomb = GameWorld.Find("bomb") as Bomb;
-        if (CollidesWith(bomb) && visible && bomb.Visible)
-        {
-            bomb.Reset();
-            visible = false;
-        }
     }
 }

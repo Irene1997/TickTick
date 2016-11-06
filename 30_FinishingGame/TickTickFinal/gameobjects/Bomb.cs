@@ -42,20 +42,21 @@ class Bomb : AnimatedGameObject
 
     public void Shoot(bool playerMirror)
     {
-        Reset();
-        visible = true;
-        velocity.X = 600;
-        if (playerMirror)
+        if(!visible)
         {
-            this.Mirror = true;
-            this.velocity.X *= -1;
+            Reset();
+            visible = true;
+            velocity.X = 600;
+            if (playerMirror)
+            {
+                this.Mirror = true;
+                this.velocity.X *= -1;
+            }
+            else
+            {
+                this.Mirror = false;
+            }
         }
-        else
-        {
-            this.Mirror = false;
-        }
-
     }
-        
 }
 

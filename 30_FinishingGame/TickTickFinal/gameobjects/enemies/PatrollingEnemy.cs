@@ -52,12 +52,14 @@ class PatrollingEnemy : AnimatedGameObject
             player.Die(false);
         }
 
+        //added collisioncheck with bomb
         Bomb bomb = GameWorld.Find("bomb") as Bomb;
         if (CollidesWith(bomb) && visible && bomb.Visible)
         {
             bomb.Reset();
             visible = false;
         }
+        //------------------------------
     }
 
     public void TurnAround()
