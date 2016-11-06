@@ -72,7 +72,7 @@ partial class Player : AnimatedGameObject
         }
         if (inputHelper.KeyPressed(Keys.Space))
         {
-            Jump();
+            Bom bom = new Bom(true, this.Position, levelSize);
         }
     }
 
