@@ -30,7 +30,7 @@ partial class Player :  AnimatedGameObject
         TileField tiles = GameWorld.Find("tiles") as TileField;
         int xFloor = (int)position.X / tiles.CellWidth;
         int yFloor = (int)position.Y / tiles.CellHeight;
-
+ 
         for (int y = yFloor - 2; y <= yFloor + 1; ++y)
         {
             for (int x = xFloor - 1; x <= xFloor + 1; ++x)
